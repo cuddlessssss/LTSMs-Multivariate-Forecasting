@@ -23,11 +23,17 @@ Workflow:
 Key Considerations:
 
 Factor Your Need
+
 Multivariate inputs Yes
+
 Weighted influence of features Yes
+
 Temporal modeling Yes (time series)
+
 Adaptability to new data Yes (online / retraining)
+
 Non-linear relationships Likely
+
 -------------------
 Model Recommendations:
 
