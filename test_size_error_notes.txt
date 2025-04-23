@@ -1,0 +1,28 @@
+# Error1: test_size=1 should be either positive and smaller than the number of samples 1 or a float in the (0, 1) range.
+
+# Cause: The error occurs when you specify test_size=1 for train_test_split, but the total number
+# of samples (the length of X) is too small. test_size=1 means you want 100% of your data to 
+# go into the test set, but you can't take more than 100% of your data.
+# You can either provide a float between 0 and 1 (e.g., 0.2 for 20% test data), or specify an 
+# integer smaller than the number of samples.
+
+# Fix: The test_size should be a float (e.g., 0.2 for 20% test data), or you should make sure 
+# that your dataset has enough samples to accommodate the size you want for the test set.
+
+# -----------------------------------
+
+# Error2: With n_samples=1, test_size=0.3 and train_size=None, the resulting train set will be empty.
+
+# Cause: This error occurs when you specify test_size=0.3 but your dataset has only one sample 
+# (or fewer samples than required for the specified test/train split). Since the split is trying 
+# to allocate 30% of one sample to the test set, it leaves nothing for the training set, resulting 
+# in an empty training set.
+
+# train_test_split cannot create a valid split with fewer than 2 samples when a portion is reserved 
+# for both training and testing.
+
+# Fix: To resolve this, ensure that your dataset contains enough samples for the split you desire. 
+# A fallback option could be to either:
+# - Increase the size of your dataset.
+# - Use a lower test_size (e.g., 0.1 or 0.2).
+# - Skip the split and use the entire dataset for training if there's only one sample.
