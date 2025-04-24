@@ -57,10 +57,13 @@ Model Recommendations:
 
 ---------------------
 multigroup.py
+
 Multi-Target Time Forecaster by 1) sell_out + 2) sell_out% of total @ point in time, Grouped by feature_1 (non-numerical)
-y-axis | target variable - sell_out
+
+Goal - Predict future sell_out values for each group using an LSTM
 
 x-axis - dates
+y-axis | target variable - sell_out
 
 Group By
 *non-numerical* feature_1 (if want numerical, need to scale with MinMaxScaler())
