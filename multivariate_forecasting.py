@@ -6,30 +6,29 @@
 #Fix -- Only Python 3.8 – 3.11 (as of TensorFlow 2.15+)
 
 #-----------------------------
-#Download older version of python first on Python.org
-#+ Run IN COMMAND PROMPT this to start a Virtual Environment (Recommended)
+#Sol1 Download older version of python first on Python.org
 #py -3.10 --version
 
+#Sol2 Run IN COMMAND PROMPT this to start a Virtual Environment (Recommended)
 #Setting up the Virual Environment
 #py -3.10 -m venv tf-env
 #tf-env\Scripts\activate
 #pip install --upgrade pip
 #pip install tensorflow
 
+# Open the Command Palette (Cmd + Shift + P).
+# Type and select: Python: Select Interpreter.
+# Choose: ./tf_env/bin/python (your virtual env).
+# Open a new terminal (important!) and activate it if not already active.
+
 # (Alternative) /opt/homebrew/bin/python3.10 -m venv tf_env -> setup virtual environment 
 # source tf_env/bin/activate
 #-----------------------------
 # pip install --upgrade pip
-#for mac: pip install pandas numpy tensorflow scikit-learn matplotlib openpyxl
+#pip install pandas numpy tensorflow scikit-learn matplotlib openpyxl
 #-----------------------------
 
-# Open the Command Palette (Cmd + Shift + P).
 
-# Type and select: Python: Select Interpreter.
-
-# Choose: ./tf_env/bin/python (your virtual env).
-
-# Open a new terminal (important!) and activate it if not already active.
 
 import pandas as pd
 import numpy as np
