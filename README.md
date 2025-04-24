@@ -58,7 +58,7 @@ Model Recommendations:
 ---------------------
 multigroup.py
 
-Multi-Target Time Forecaster using Expanding window of ALL historical data by 1) sell_out + 2) sell_out% of total @ point in time, Grouped by feature_1 (non-numerical)
+Multi-Target Time Forecaster using by 1) sell_out + 2) sell_out% of total @ point in time, Grouped by feature_1 (non-numerical)
 
 Goal - Predict future sell_out values for each group using an LSTM
 
@@ -74,3 +74,8 @@ Features:
 
 2. (By creation of NEW dataframe based on sell_out values @ point in time) Relative % of sell_out compared to total of other feature_1s on the same date
 → For example: on 2024-01-01, if feature_1 = COURTS sold 100 units and total on that day across all feature_1s is 500, then COURTS gets 100 / 500 = 20%
+-----------------------
+multigroup_expandingrolling.py 
+
+Almost the same as multigroup.py except it includes an
+-> Expanding window of ALL historical data
