@@ -55,3 +55,19 @@ Model Recommendations:
  • Not ideal here. It assumes linearity and stationarity, and doesn’t handle complex feature weighting easily.
  • Hard to adapt quickly to new data — retraining is slower and less flexible.
 
+---------------------
+
+Multi-Target Time Forecaster by 1) sell_out + 2) sell_out% of total @ point in time, Grouped by feature_1 (non-numerical)
+y-axis | target variable - sell_out
+
+x-axis - dates
+
+Group By
+*non-numerical* feature_1 (if want numerical, need to scale with MinMaxScaler())
+
+Features:
+
+1. Historical sell_out values (raw or scaled)
+
+2. (By creation of NEW dataframe based on sell_out values @ point in time) Relative % of sell_out compared to total of other feature_1s on the same date
+→ For example: on 2024-01-01, if feature_1 = COURTS sold 100 units and total on that day across all feature_1s is 500, then COURTS gets 100 / 500 = 20%
