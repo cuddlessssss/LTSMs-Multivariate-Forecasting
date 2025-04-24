@@ -17,7 +17,7 @@ df['total_sell_out_by_date'] = df.groupby('date')['sell_out'].transform('sum')
 df['sell_out_share'] = df['sell_out'] / df['total_sell_out_by_date']
 
 # Function to create sequences
-def create_sequences(data, input_timesteps=24, output_timesteps=12):
+def create_sequences(data, input_timesteps=208, output_timesteps=53):
     X, Y = [], []
     for i in range(len(data) - input_timesteps - output_timesteps + 1):
         x_seq = data[i: i + input_timesteps]
@@ -27,7 +27,7 @@ def create_sequences(data, input_timesteps=24, output_timesteps=12):
     return np.array(X), np.array(Y)
 
 # Define model builder
-def create_lstm_forecaster(input_timesteps, num_features, output_timesteps=12):
+def create_lstm_forecaster(input_timesteps, num_features, output_timesteps=53):
     inputs = layers.Input(shape=(input_timesteps, num_features))
     x = layers.LSTM(128, return_sequences=True)(inputs)
     x = layers.LSTM(64)(x)
@@ -39,8 +39,8 @@ def create_lstm_forecaster(input_timesteps, num_features, output_timesteps=12):
     return model
 
 # Train and forecast for each group
-input_timesteps = 24
-output_timesteps = 12
+input_timesteps = 208
+output_timesteps = 53
 
 for group in df['feature_1'].unique():
     print(f"\n=== Processing group: {group} ===")
@@ -89,8 +89,8 @@ for group in df['feature_1'].unique():
     # Plot
     plt.figure()
     plt.plot(future_pred_real, marker='o')
-    plt.title(f"12-Month Forecast: {group}")
-    plt.xlabel("Months Ahead")
+    plt.title(f"52-Week Forecast: {group}")
+    plt.xlabel("Weeks Ahead")
     plt.ylabel("Sell-Out Value")
     plt.grid(True)
     plt.show()
