@@ -2,7 +2,7 @@
 #go to file explorer
 #cd file_path in Terminal
 #mac - source tf_env/bin/activate
-#windows - .\tf_env\Scripts\activateh
+#windows - .\tf_env\Scripts\activate (ensure running scripts are enabled on your device)
 
 #Ctrl + Shift + P open command palete -> Python: Select Interpreter eg. something like .\tf-env\Scripts\python.exe
 #then reload window in cmd shift p
