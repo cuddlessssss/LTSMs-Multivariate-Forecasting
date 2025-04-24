@@ -1,9 +1,28 @@
 #script2 
 
-#/opt/homebrew/bin/python3.10 -m venv tf_env -> setup virtual environment
+#-----------------------------
+#Troubleshooting: ERROR: Could not find a version that satisfies the requirement tensorflow (from versions: none)
+#ERROR: No matching distribution found for tensorflow
+#Fix -- Only Python 3.8 – 3.11 (as of TensorFlow 2.15+)
+
+#-----------------------------
+#Download older version of python first on Python.org
+#+ Run IN COMMAND PROMPT this to start a Virtual Environment (Recommended)
+#py -3.10 --version
+
+#Setting up the Virual Environment
+#py -3.10 -m venv tf-env
+#tf-env\Scripts\activate
+#pip install --upgrade pip
+#pip install tensorflow
+
+# (Alternative) /opt/homebrew/bin/python3.10 -m venv tf_env -> setup virtual environment 
 # source tf_env/bin/activate
+#-----------------------------
 # pip install --upgrade pip
-#pip install pandas numpy tensorflow scikit-learn matplotlib openpyxl
+#for mac: pip install pandas numpy tensorflow scikit-learn matplotlib openpyxl
+#-----------------------------
+
 # Open the Command Palette (Cmd + Shift + P).
 
 # Type and select: Python: Select Interpreter.
@@ -11,6 +30,7 @@
 # Choose: ./tf_env/bin/python (your virtual env).
 
 # Open a new terminal (important!) and activate it if not already active.
+
 import pandas as pd
 import numpy as np
 import tensorflow as tf
