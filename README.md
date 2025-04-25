@@ -83,6 +83,10 @@ Model Recommendations:
  • Hard to adapt quickly to new data — retraining is slower and less flexible.
 
 ---------------------
+multivariate_forecasting.py
+Original Base
+
+----------------------
 multigroup.py
 
 Multi-Target Time Forecaster using by 1) sell_out + 2) sell_out% of total @ point in time, Grouped by feature_1 (non-numerical)
