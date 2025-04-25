@@ -1,6 +1,33 @@
 # LTSMs-Multivariate-Forecasting
 Multivariate Time Series Forecasting with LTSMs
 
+🧠 LSTM Basis of Predictions:
+1. Patterns in Past Data
+LSTM learns from sequences — so it looks at how the values change over time.
+
+Example:
+If sales increase every December and drop in January, the LSTM can learn that pattern and use it to forecast future Dec/Jan trends.
+
+2. Input Sequence (a "window" of past values)
+You provide the model with a time window (e.g., last 30 days of data), and it learns how to predict the next step.
+
+This is like saying:
+
+"Given that the last 30 days looked like this, what is the most likely value on day 31?"
+
+3. Weights Learned During Training
+LSTM contains weights (parameters) that get adjusted during training to minimize prediction error.
+
+It tries to find the best internal "rules" for how past values influence future ones.
+
+4. Temporal Relationships
+LSTMs can capture both:
+
+Short-term dependencies (e.g., sales yesterday influence today’s sales)
+
+Long-term dependencies (e.g., yearly seasonality, like holidays or trends)
+
+-----------------------------------------
 My Project Goals:
  • Predict future values based on past values inputted
  • Use past values and weighted percentages per month (likely features influencing our variable of study)
