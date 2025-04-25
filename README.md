@@ -1,4 +1,4 @@
-# LTSMs-Multivariate-Forecasting
+# LSTMs-Multivariate-Forecasting
 Multivariate Time Series Forecasting with LTSMs
 
 🧠 LSTM Basis of Predictions:
