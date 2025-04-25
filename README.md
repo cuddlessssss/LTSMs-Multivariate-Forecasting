@@ -102,7 +102,7 @@ Features:
 2. (By creation of NEW dataframe based on sell_out values @ point in time) Relative % of sell_out compared to total of other feature_1s on the same date
 → For example: on 2024-01-01, if feature_1 = COURTS sold 100 units and total on that day across all feature_1s is 500, then COURTS gets 100 / 500 = 20%
 -----------------------
-multigroup_expandingrolling.py 
+multigroup_expandingrolling.py (not functional yet)
 
 Almost the same as multigroup.py except it includes an
 -> Expanding window of ALL historical data
