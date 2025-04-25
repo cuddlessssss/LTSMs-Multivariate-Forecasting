@@ -1,5 +1,5 @@
 # LSTMs-Multivariate-Forecasting
-Multivariate Time Series Forecasting with LTSMs
+Multivariate Time Series Forecasting with LSTMs (Long-Short-Term-Memory)
 
 🧠 LSTM Basis of Predictions:
 1. Patterns in Past Data
