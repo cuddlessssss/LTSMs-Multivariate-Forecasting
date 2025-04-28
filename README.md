@@ -81,6 +81,16 @@ Model Recommendations:
 3. VAR?
  • Not ideal here. It assumes linearity and stationarity, and doesn’t handle complex feature weighting easily.
  • Hard to adapt quickly to new data — retraining is slower and less flexible.
+---------------------
+12forecasts.py
+allows 2 features (feature_2 subfeature of feature_1) 
+Purpose: GIVEN the total forecast of each month (for 12 mths) -> breaking down to how much per combination of feature_1 and feature_2
+then exports via excel
+
+📦 Files you need:
+your_past_data.csv with columns: date, feature_1, feature_2, sell_out
+
+future_total_sell_outs.csv with columns: year_month, total_sell_out
 
 ---------------------
 multivariate_forecasting.py
