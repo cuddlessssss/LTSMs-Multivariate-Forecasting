@@ -92,6 +92,53 @@ your_past_data.csv with columns: date, feature_1, feature_2, sell_out
 
 future_total_sell_outs.csv with columns: year_month, total_sell_out
 
+Steps Overview:
+Data Preprocessing:
+
+Load Historical Data: The past sales data is loaded from an Excel file. The date is converted to a datetime object, and only the last 4 years of data is kept by filtering based on the most recent date.
+
+Load Future Total Sell-Out Targets: This is the total sell-out value that needs to be distributed across feature_1 and feature_2 for each of the next 12 months.
+
+Label Encoding: feature_1 and feature_2 are encoded into numerical values to prepare them for the model.
+
+Data Aggregation:
+
+The data is aggregated by month, feature_1, and feature_2 to compute the total sell_out values for each combination. This data is then pivoted to create a wide-format table where each combination of feature_1 and feature_2 has its own column, and the rows correspond to monthly data.
+
+The table is then normalized so that the sum of each month's rows equals 1 (this ensures predictions are proportional).
+
+Sequence Preparation:
+
+To train the LSTM model, sequences of past data are prepared using a sliding window of input_sequence_length=6 (i.e., using the past 6 months' data to predict the next month's split).
+
+The sequences are used to train the LSTM model.
+
+Model Building:
+
+The LSTM model is combined with an attention mechanism to give more weight to important past months when making predictions for the future months. The AttentionWithContext layer is custom-built to calculate attention scores, allowing the model to focus on key time points.
+
+The model outputs the predicted sell_out proportions for each feature_1 and feature_2 combination.
+
+Forecasting:
+
+The trained model predicts the proportions of sell_out for each of the 12 future months.
+
+These proportions are then scaled by the respective total sell_out value for each month (from the future_total_sell_outs.xlsx file).
+
+Save Predictions:
+
+The results (predicted sell_out values) are saved into an Excel file. For each month, the sell_out values are assigned to each feature_1 and feature_2 combination, and attention weights are stored for each historical month.
+
+The attention weights are highlighted for the highest weight in each future month, which shows which past months had the greatest influence on the forecast.
+
+Excel Output:
+
+The Excel file contains two sheets:
+
+Predictions: Contains the predicted sell_out values for each combination of feature_1 and feature_2 for each of the 12 future months.
+
+Attention: Contains the attention weights for each month, indicating which past months were most influential.
+
 ---------------------
 multivariate_forecasting.py
 Original Base
