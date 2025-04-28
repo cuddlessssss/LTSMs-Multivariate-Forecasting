@@ -92,7 +92,8 @@ your_past_data.csv with columns: date, feature_1, feature_2, sell_out
 
 future_total_sell_outs.csv with columns: year_month, total_sell_out
 
-Steps Overview:
+#Steps Overview:
+
 Data Preprocessing:
 
 Load Historical Data: The past sales data is loaded from an Excel file. The date is converted to a datetime object, and only the last 4 years of data is kept by filtering based on the most recent date.
