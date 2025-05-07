@@ -182,7 +182,7 @@ Model Recommendations:
 
 ⸻
 
-3. VAR?
+3. VAR? (Vector AutoRegression -- Statistical Time Series Model)
  • Not ideal here. It assumes linearity and stationarity, and doesn’t handle complex feature weighting easily.
  • Hard to adapt quickly to new data — retraining is slower and less flexible.
 
@@ -212,8 +212,12 @@ Here's what needs to be done per month:
 2. Sort predictions by decimal part (2 groups -- ascending for round-down group, descending for round-up group).
 
 3. Determine how many to round up vs down based on how many extra units are needed to match the monthly total when using floor values.
+  
+4. Monthly total - Floor Values = DIFFERENCE
+   
+5. Round down every value first, then choose how many to round up to meet DIFFERENCE
 
-4. Adjust predictions accordingly.
+7. Adjust predictions accordingly.
 
 ---------------------
 12forecastwattention.py
