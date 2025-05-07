@@ -1,4 +1,4 @@
-# Multivariate LSTM Forecasting grouped by 'feature_1'
+# Multivariate LSTM Forecasting grouped by 'feature_1' + proportion of 'feature_1' per date + weekly data
 
 import pandas as pd
 import numpy as np
