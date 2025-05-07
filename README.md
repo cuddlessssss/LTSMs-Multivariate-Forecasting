@@ -26,6 +26,7 @@ LSTMs can capture both:
 Short-term dependencies (e.g., sales yesterday influence today’s sales)
 
 Long-term dependencies (e.g., yearly seasonality, like holidays or trends)
+
 -----------------------
 🤖 Why Do Vanishing and Exploding Gradients Happen in RNNs?
 RNNs (Recurrent Neural Networks) process sequences step-by-step, and during training, they use backpropagation through time (BPTT) — meaning they pass gradients backward through many time steps.
