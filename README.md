@@ -1,6 +1,16 @@
 # LSTMs-Multivariate-Forecasting
 Multivariate Time Series Forecasting with LSTMs (Long-Short-Term-Memory)
 
+(cpp)
+Vanilla RNNs (MULTIPLICATIVE)
+h_t = tanh(W_h * h_{t-1} + W_x * x_t)
+∂L/∂W ≈ ∏(∂h_t/∂h_{t-1}) 
+-> if > 0 exploding gradient
+-> if < 0 vanishing gradient
+
+LTSMs (ADDITIVE)
+C_t = f_t * C_{t-1} + i_t * g_t
+
 🧠 LSTM Basis of Predictions:
 1. Patterns in Past Data
 LSTM learns from sequences — so it looks at how the values change over time.
