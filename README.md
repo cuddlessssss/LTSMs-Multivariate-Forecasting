@@ -26,7 +26,55 @@ LSTMs can capture both:
 Short-term dependencies (e.g., sales yesterday influence today’s sales)
 
 Long-term dependencies (e.g., yearly seasonality, like holidays or trends)
+-----------------------
+🔁 What’s the Problem?
+When training models like RNNs on sequences (like time series), two main problems happen:
 
+Vanishing gradients – the model forgets older information because the gradients become too small while training.
+
+Exploding gradients – the model becomes unstable because gradients become too large and cause huge jumps in training.
+
+🧠 What Makes LSTM Different?
+LSTM (Long Short-Term Memory) is a special kind of RNN that solves both problems using gates and a cell state.
+
+🧩 Key Ideas (in plain terms):
+1. Memory Cell (Cell State)
+Think of it like a conveyor belt that carries important information from the past into the future.
+
+It moves along without being changed too much.
+
+This helps the model remember things for longer.
+
+2. Gates (like valves)
+There are 3 gates in LSTM:
+
+Forget gate: What old information should we forget?
+
+Input gate: What new information should we add?
+
+Output gate: What do we show as output?
+
+Each gate controls the flow using values between 0 and 1 (like a dimmer switch).
+
+✋ How LSTM Stops Vanishing Gradients
+In normal RNNs, the signal fades (vanishes) as it moves backward in time.
+
+In LSTM:
+
+The forget gate can choose to keep information by setting its value close to 1.
+
+Instead of multiplying again and again, LSTM adds information in the cell state.
+
+Adding keeps the information strong, so the model remembers older patterns.
+
+✅ Result: Gradients don’t vanish → LSTM can learn long-term patterns.
+
+🚫 How LSTM Stops Exploding Gradients
+All gates in LSTM use sigmoid or tanh, which squash values between -1 and 1.
+
+This means no huge numbers can come out.
+
+Also, optimizer tricks like gradient clipping can stop exploding values.
 -----------------------------------------
 My Project Goals:
  • Predict future values based on past values inputted
@@ -36,7 +84,7 @@ My Project Goals:
 What the code provides
  • A trained LSTM model
  • A 12-month forecast
- • A plotted result
+ • A plotted or Excel result
 
 Workflow:
  1. Preprocess your data (normalize, handle missing values, encode categorical features)
@@ -166,55 +214,7 @@ Features:
 
 2. (By creation of NEW dataframe based on sell_out values @ point in time) Relative % of sell_out compared to total of other feature_1s on the same date
 → For example: on 2024-01-01, if feature_1 = COURTS sold 100 units and total on that day across all feature_1s is 500, then COURTS gets 100 / 500 = 20%
------------------------
-🔁 What’s the Problem?
-When training models like RNNs on sequences (like time series), two main problems happen:
 
-Vanishing gradients – the model forgets older information because the gradients become too small while training.
-
-Exploding gradients – the model becomes unstable because gradients become too large and cause huge jumps in training.
-
-🧠 What Makes LSTM Different?
-LSTM (Long Short-Term Memory) is a special kind of RNN that solves both problems using gates and a cell state.
-
-🧩 Key Ideas (in plain terms):
-1. Memory Cell (Cell State)
-Think of it like a conveyor belt that carries important information from the past into the future.
-
-It moves along without being changed too much.
-
-This helps the model remember things for longer.
-
-2. Gates (like valves)
-There are 3 gates in LSTM:
-
-Forget gate: What old information should we forget?
-
-Input gate: What new information should we add?
-
-Output gate: What do we show as output?
-
-Each gate controls the flow using values between 0 and 1 (like a dimmer switch).
-
-✋ How LSTM Stops Vanishing Gradients
-In normal RNNs, the signal fades (vanishes) as it moves backward in time.
-
-In LSTM:
-
-The forget gate can choose to keep information by setting its value close to 1.
-
-Instead of multiplying again and again, LSTM adds information in the cell state.
-
-Adding keeps the information strong, so the model remembers older patterns.
-
-✅ Result: Gradients don’t vanish → LSTM can learn long-term patterns.
-
-🚫 How LSTM Stops Exploding Gradients
-All gates in LSTM use sigmoid or tanh, which squash values between -1 and 1.
-
-This means no huge numbers can come out.
-
-Also, optimizer tricks like gradient clipping can stop exploding values.
 
 ✅ Result: Training is more stable → LSTM doesn’t explode.
 
