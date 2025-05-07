@@ -1,14 +1,19 @@
 # LSTMs-Multivariate-Forecasting
 Multivariate Time Series Forecasting with LSTMs (Long-Short-Term-Memory)
 
-(cpp)
+(cpp) 
 Vanilla RNNs (MULTIPLICATIVE)
+
 h_t = tanh(W_h * h_{t-1} + W_x * x_t)
+
 ∂L/∂W ≈ ∏(∂h_t/∂h_{t-1}) 
+
 -> if > 0 exploding gradient
+
 -> if < 0 vanishing gradient
 
 LTSMs (ADDITIVE)
+
 C_t = f_t * C_{t-1} + i_t * g_t
 
 🧠 LSTM Basis of Predictions:
@@ -180,10 +185,13 @@ Model Recommendations:
 3. VAR?
  • Not ideal here. It assumes linearity and stationarity, and doesn’t handle complex feature weighting easily.
  • Hard to adapt quickly to new data — retraining is slower and less flexible.
+
+---------------------
+12fore
 ---------------------
 12forecasts.py
 
-allows 2 features (feature_2 subfeature of feature_1) 
+allows 2 features
 
 Purpose: GIVEN the total forecast of each month (for 12 mths) -> breaking down to how much per combination of feature_1 and feature_2
 then exports via excel
