@@ -27,7 +27,46 @@ Short-term dependencies (e.g., sales yesterday influence today’s sales)
 
 Long-term dependencies (e.g., yearly seasonality, like holidays or trends)
 -----------------------
-🔁 What’s the Problem?
+🤖 Why Do Vanishing and Exploding Gradients Happen in RNNs?
+RNNs (Recurrent Neural Networks) process sequences step-by-step, and during training, they use backpropagation through time (BPTT) — meaning they pass gradients backward through many time steps.
+
+⛓️ What Happens Mathematically?
+When calculating gradients over many time steps, RNNs multiply many matrices together repeatedly. These matrices include weights and derivatives of activation functions (like tanh or sigmoid).
+
+This repeated multiplication causes:
+
+🔻 Vanishing Gradient
+If those numbers are smaller than 1, multiplying them again and again shrinks the gradient.
+
+Eventually, it becomes very close to 0, and the model can't learn from earlier time steps.
+
+Result: The model forgets long-term dependencies.
+
+🔺 Exploding Gradient
+If those numbers are larger than 1, the repeated multiplication causes the gradient to grow very fast.
+
+This makes the weights explode and training becomes unstable.
+
+Result: The model gives wildly wrong predictions or even NaN (not a number).
+
+📉 Analogy
+Imagine passing a message down a line of people:
+
+If each person whispers too quietly (small gradient), the message disappears → vanishing.
+
+If each person shouts louder and louder (big gradient), it turns into noise → exploding.
+
+✅ LSTMs and GRUs Help
+They fix this by:
+
+Using gates to carefully control what info passes.
+
+Using cell states to carry long-term memory.
+
+Preventing gradients from shrinking or blowing up.
+
+----------------------------------------
+🔁 How do we Solve the 2 Problems with LTSMs?
 When training models like RNNs on sequences (like time series), two main problems happen:
 
 Vanishing gradients – the model forgets older information because the gradients become too small while training.
@@ -75,6 +114,7 @@ All gates in LSTM use sigmoid or tanh, which squash values between -1 and 1.
 This means no huge numbers can come out.
 
 Also, optimizer tricks like gradient clipping can stop exploding values.
+
 -----------------------------------------
 My Project Goals:
  • Predict future values based on past values inputted
