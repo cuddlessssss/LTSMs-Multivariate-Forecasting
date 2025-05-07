@@ -187,9 +187,36 @@ Model Recommendations:
  • Hard to adapt quickly to new data — retraining is slower and less flexible.
 
 ---------------------
-12fore
----------------------
 12forecasts.py
+
+12 Months Forecast, where values are whole numbers, given a total forecasted amount Each month
+
+Method: 
+
+1. Gives proportions to each Unique combination of Model Name | Acccount Name that add up to 1 Each month! 
+
+2. Multiply by the total_sell_out value for the month (total monthly forecast, user input!)
+
+3. Rounding off intelligently (up or down depends on decimal points, while maintaining adding up to total_sell_out criterion)
+
+Input files: 'future_total_sell_outs.xlsx'  # Columns: ['year_month', 'total_sell_out'] (Given Monthly Forecast)
+
++ 'your_past_data.xlsx', sheet_name='updated' # Columns: ['Date', 'Model Name', 'Account Name', 'Dealer Net Sell Out Qty']
+
+#Step 3. To achieve your goal (Whole Number Values) — rounding the predicted_Dealer_Net_Sell_Out_Qty values smartly so they sum up to the given monthly total — you can follow this structured approach after you've computed final_predictions.
+
+Here's what needs to be done per month:
+
+1. Separate integer and decimal parts of all predicted values.
+
+2. Sort predictions by decimal part (2 groups -- ascending for round-down group, descending for round-up group).
+
+3. Determine how many to round up vs down based on how many extra units are needed to match the monthly total when using floor values.
+
+4. Adjust predictions accordingly.
+
+---------------------
+12forecastwattention.py
 
 allows 2 features
 
