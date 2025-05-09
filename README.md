@@ -187,7 +187,7 @@ Model Recommendations:
  • Hard to adapt quickly to new data — retraining is slower and less flexible.
 
 ---------------------
-12forecasts.py
+12forecastsrounded.py
 
 12 Months Forecast, where values are whole numbers, given a total forecasted amount Each month
 
