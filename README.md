@@ -191,6 +191,12 @@ Model Recommendations:
 
 12 Months Forecast, where values are whole numbers, given a total forecasted amount Each month
 
+Adjusting time horizon: 
+
+1. Line 20 - DateOffset() -> How much data to use 
+
+2. Line 37 - input_sequence_length -> how many months to use per training sample, rolling window. eg. if 2 years of data used, input_sequence_length = 12, 24-12 = 12 training samples will be used
+
 Method: 
 
 1. Gives proportions to each Unique combination of Model Name | Acccount Name that add up to 1 Each month! 
