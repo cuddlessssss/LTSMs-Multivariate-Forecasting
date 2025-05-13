@@ -24,7 +24,7 @@ cutoff_date = latest_date - pd.DateOffset(years=4)
 data = data[data['Date'] >= cutoff_date]
 
 # 🧾 Load future total sell-outs in pivoted format
-future_total_raw = pd.read_excel('future_total_sell_outs_pivoted.xlsx')
+future_total_raw = pd.read_excel('future_total_sell_outs_pivoted2.xlsx')
 future_total_melted = future_total_raw.melt(id_vars='Model Name', var_name='year_month', value_name='total_sell_out')
 future_total_melted['year_month'] = pd.to_datetime(future_total_melted['year_month']).dt.to_period('M')
 
