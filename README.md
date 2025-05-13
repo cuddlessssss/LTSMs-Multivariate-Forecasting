@@ -1,6 +1,8 @@
 # LSTMs-Multivariate-Forecasting
 Multivariate Time Series Forecasting with LSTMs (Long-Short-Term-Memory)
 
+Please use Python 3.9 - 3.11 so Keras and Tensorflow may work properly. As of May 2025 time of this upload, other versions do not support the above deep learning libraries.
+
 (cpp) 
 Vanilla RNNs (MULTIPLICATIVE)
 
