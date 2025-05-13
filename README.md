@@ -187,15 +187,39 @@ Model Recommendations:
  • Hard to adapt quickly to new data — retraining is slower and less flexible.
 
 ---------------------
-12forecastsrounded.py
+12forecastsrounded2.py
 
-12 Months Forecast, where values are whole numbers, given a total forecasted amount Each month
+12 month forecast, where output values are whole numbers, given a total forecasted amount Each Month, for Each MODEL NAME (input:future_total_sell_outs_pivoted), to Split down to different Account Name. Based on historical past Account Name, Model Name and Dealer Net Sell Out Qty (input:your_past_data.slsx. sheet_name='updated')
 
 Adjusting time horizon: 
 
-1. Line 20 - DateOffset() -> How much data to use 
+1. DateOffset() -> How much data to use 
 
-2. Line 37 - input_sequence_length -> how many months to use per training sample, rolling window. eg. if 2 years of data used, input_sequence_length = 12, 24-12 = 12 training samples will be used
+2. input_sequence_length -> how many months to use per training sample, rolling window. eg. if 2 years of data used, input_sequence_length = 12, 24-12 = 12 training samples will be used
+
+Method:
+
+SIMILAR tp 12forecastsrounded.py
+
+Key Differences:
+
+1) The rounding is done per model, so the sum of the forecast per model matches the target exactly
+
+2) More Specific Input Information may be provided, as for Model Name at each month total forecast can be provided.
+   
+3) Input Data 'future_total_sell_outs.xlsx' is pivoted, so that Column A is Model Name, Columns B onwards are all year_month (eg. 2025-06, 2025-07 etc) and the values are total_sell_out for each Model Name are in rows, separated by columns for different months.
+
+--------------------------
+
+12forecastsrounded.py
+
+12 Months Forecast, where output values are whole numbers, given a TOTAL forecasted amount Each Month, AGGREGATED for ALL MODEL NAME
+
+Adjusting time horizon: 
+
+1. DateOffset() -> How much data to use 
+
+2. input_sequence_length -> how many months to use per training sample, rolling window. eg. if 2 years of data used, input_sequence_length = 12, 24-12 = 12 training samples will be used
 
 Method: 
 
@@ -205,7 +229,7 @@ Method:
 
 3. Rounding off intelligently (up or down depends on decimal points, while maintaining adding up to total_sell_out criterion)
 
-Input files: 'future_total_sell_outs.xlsx'  # Columns: ['year_month', 'total_sell_out'] (Given Monthly Forecast)
+Input files: 'future_total_sell_outs.xlsx'  # Columns: ['year_month', 'total_sell_out'] (Given Monthly Forecast AGGREGATED FOR ALL MODEL NAME + ACCOUNT NAME)
 
 + 'your_past_data.xlsx', sheet_name='updated' # Columns: ['Date', 'Model Name', 'Account Name', 'Dealer Net Sell Out Qty']
 
